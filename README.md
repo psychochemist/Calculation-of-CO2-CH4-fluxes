@@ -24,3 +24,10 @@ The given metadta .csv files can be updated with new data, regarding the formati
   - SafetyC: x - *the volume of the safety chamber in cm<sup>3</sup>*
   - ChamberH: x - *the height of the chamber in cm* 
   - ChamberD: x - *the diameter of the chamber in cm*
+- light_temp.csv
+  - dt: dd-mm-yyyy hh:mm:ss - *the combination of date and time; this coloumn can be left empty, because the date and time are combined in R*
+  - par: x - *photosynthetic active radiation in µmol/m<sup>2</sup>/s*
+  - temp: x - *temeperature in Celcius*
+  - date: dd-mm-yyyy - *date of themeasurement*
+  - time: hh:mm:ss - *time of the measurement*
+- temp.csv - *this is an additional dataset in case if the measurements of PAR and temeparature had different frequency; in this case, temperature had higher frequency compare to PAR measurements*
