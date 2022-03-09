@@ -1,6 +1,6 @@
 #### calculate fluxes with package fluxCal ###
 
-## IMPORTANT: to run the script all of the files of the archive have to be kept in the same folder. There is no need to change the directories in read.csv(). 
+## IMPORTANT: to run the script there is no need to change directories in read.csv command. Download script and folder "data" into the same folder. 
 
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path)) # set working directory to location where script is located. 
 getwd() # check if working directory is set correct
