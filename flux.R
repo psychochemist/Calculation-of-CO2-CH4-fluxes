@@ -1,4 +1,4 @@
-#### calculate fluxes with package fluxCal ###
+#### calculate fluxes with package fluxCal ####
 
 ## IMPORTANT: to run the script there is no need to change directories in read.csv command. Download script and folder "data" into the same folder. 
 
@@ -61,18 +61,18 @@ time_cue$par <- NA
 time_cue$temp <- NA
 #Since the measurements of the fluxes were higher frequency than those of par and temperature, general additive model was created to calculate the par and temperature for the timestamps of the flux measurements. 
 
-#check fluctuation of the par
+# check fluctuation of the par
 plot(d$time, d$par)
-#based on  the plot GAM is applied to find the par for timestamps when fluxes were measured 
+# based on  the plot GAM is applied to find the par for timestamps when fluxes were measured 
 
 par_gam <- gam(par~s(time), data=d)
 dummy1<-seq(from=min(d$time),to=max(d$time), length=1000)
 yPredicted_par <- predict(par_gam,newdata=data.frame(time=dummy1))
 lines(dummy1,yPredicted_par,col="red")
 
-#check the temperature fluctuation 
+# check the temperature fluctuation 
 plot(d_temp$time, d_temp$temp)
-#based on  the plot GAM is applied to find the temperature for timestamps when fluxes were measured
+# based on  the plot GAM is applied to find the temperature for timestamps when fluxes were measured
 
 temp_gam <- gam(temp~s(time), data=d_temp)
 dummy2<-seq(from=min(d_temp$time),to=max(d_temp$time), length=1000)
@@ -80,7 +80,7 @@ yPredicted_temp <- predict(temp_gam, newdata = data.frame(time=dummy2))
 lines(dummy2,yPredicted_temp,col="red")
 
 
-#Predicting the values of temperature and par based on the models, for every second of the day.
+# Predicting the values of temperature and par based on the models, for every second of the day.
 model_d <- data.frame(dt=seq(from=as.POSIXct("2021-09-22 00:00:01"),to=as.POSIXct("2021-09-23 00:00:00"),by="sec"))
 model_d$time <- chron(times=strftime(model_d$dt, "%H:%M:%S"))
 converTime <- seq(from=min(model_d$time), to=max(model_d$time),length=86400)
@@ -105,15 +105,15 @@ for(i in seq(nrow(time_cue))){
 # clean up!
 remove(d, d_temp, dummy1, dummy2, yPredicted_par, yPredicted_temp, converTime, model_d)
 
-#### Data preparation ----
+# Data preparation ----
 
 # first import .data file and make dataset suitable for calculations
 temp <- read.delim("./data/licor.data", header = T, skip = 5) # import .data file and skip first 5 lines
 temp <- temp[-1,] # delete 1st row
 
-temp[temp=="nan"] <- NA #replace empty measurement points with actual empty cells
+temp[temp=="nan"] <- NA # replace empty measurement points with actual empty cells
 
-df <- na.omit(temp) #remove rows with empty cells
+df <- na.omit(temp) # remove rows with empty cells
 
 df$dt <- paste(df$DATE, df$TIME) # combine date and time columns into one column
 
@@ -173,7 +173,7 @@ pressure_day1 <- 102.917894736842*9.8692316931427E-3
 remove(temp,df1,df, time_cue, un, time_constant)
 
 
-#### Flux calculation ----
+# Flux calculation ----
 
 # import data (repeat below code for each day)
 
@@ -257,7 +257,6 @@ CO2_fluxes <- CO2_final
 CH4_fluxes <- CH4_final
 
 
-
 CH4_molarmass <- 16.04246 # CH4 molar mass 
 CO2_molarmass <- 44.0095 # CO2 molar nass
 
@@ -265,7 +264,7 @@ CO2_molarmass <- 44.0095 # CO2 molar nass
 CH4_fluxes$Flux_mg <- (CH4_fluxes$Flux*CH4_molarmass/1000)*60*60*24
 CO2_fluxes$Flux_mg <- (CO2_fluxes$Flux*CO2_molarmass/1000)*60*60*24
 
-#combining flux calculations in one data frame
+# combining flux calculations in one data frame
 fluxes <- rbind(CO2_fluxes, CH4_fluxes)
 
 
