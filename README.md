@@ -47,8 +47,3 @@ Sometimes the script has to be run again after installation of the packages to l
 ## Reference
  - Junbin Zhao (2019). FluxCalR: a R package for calculating CO2 and CH4 fluxes from static chambers. Journal of Open Source Software, 4(43), 1751, https://doi.org/10.21105/joss.01751, [GitHub](https://github.com/junbinzhao/FluxCalR)
 
-
-Sometimes after installation of the packages, the script has to be run again to load properly the packages. Keep in mind, it takes some time for script to complete the calculations. As a result of script the file "fluxes.csv" is created which contains the fluxes in  umol/m2/s and mg/m2/d, along with input data. "fluxes.csv" is uploaded as [result.csv](https://github.com/psychochemist/Calculation-of-CO2-CH4-fluxes/blob/main/result.csv) to avoid confusion.
-
-## Reference
- - Junbin Zhao (2019). FluxCalR: a R package for calculating CO2 and CH4 fluxes from static chambers. Journal of Open Source Software, 4(43), 1751, https://doi.org/10.21105/joss.01751, [GitHub](https://github.com/junbinzhao/FluxCalR)
