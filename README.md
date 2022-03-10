@@ -5,11 +5,12 @@ As a part of university project, the fluxes of CO2 and CH4 were measured with a 
 
 The air temperature, atmospheric pressure and photosynthetic active radiation were acquired from weather station.
 
-All data was collected on the island Terschelling, Netherlands, as a part of student project in Radboud university.
+All data was collected on the island Terschelling, Netherlands, as a part of student project in Radboud university. 
 
 ## FluxCalR package application and metadata
+My part in the project was data analysis, including the extraction data from the gas analyser. 
 
-The script present in this repository is supposed to show the application of FluxCalR package for calculation of fluxes, by use of metadata. 
+The script presented in this repository is supposed to show the application of FluxCalR package for calculation of fluxes, by use of metadata. 
 The given metadata .csv files can be updated with new data.
 
 ### Description of metadata
@@ -43,5 +44,5 @@ It has to be mentioned that to run the script it requires certain packages, incl
 
 Sometimes after installation of the packages, the script has to be run again to load properly the packages. Keep in mind, it takes some time for script to complete the calculations. As a result of script the file "fluxes.csv" is created which contains the fluxes in  umol/m2/s and mg/m2/d, along with input data. "fluxes.csv" is uploaded as [result.csv](https://github.com/psychochemist/Calculation-of-CO2-CH4-fluxes/blob/main/result.csv) to avoid confusion.
 
-### Reference
- -Junbin Zhao (2019). FluxCalR: a R package for calculating CO2 and CH4 fluxes from static chambers. Journal of Open Source Software, 4(43), 1751, https://doi.org/10.21105/joss.01751, [GitHub](https://github.com/junbinzhao/FluxCalR)
+## Reference
+ - Junbin Zhao (2019). FluxCalR: a R package for calculating CO2 and CH4 fluxes from static chambers. Journal of Open Source Software, 4(43), 1751, https://doi.org/10.21105/joss.01751, [GitHub](https://github.com/junbinzhao/FluxCalR)
